@@ -1,0 +1,52 @@
+server:
+  port: 9898
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+#        naming:
+#          physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+#          use-new-id-generator-mappings: false
+#    database: MYSQL
+#    show-sql: true
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    password: password
+    url: jdbc:mysql://10.40.1.17:3307/ciudades?useSSL=false
+    username: root
+  redis:
+    password: mypass
+  application:
+    name: app-redis
+    cache:
+      type: redis
+    redis:
+      cluster:
+        nodes:
+          - localhost:6379
+        maxRedirects: 2
+  cache:
+    redis:
+      key-prefix: "daas-"
+#    dbcp2:
+#      validation-query: SELECT 1
+#    hikari:
+#      maximum-pool-size: "${MAXIMUM_POOL_SIZE:10}"
+#  jpa:
+#    database: MYSQL
+#    properties:
+#      hibernate.enable_lazy_load_no_trans: true
+#      show-sql: true
+#      hibernate:
+#        naming:
+#          physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+#        use-new-id-generator-mappings: false
+#      open-in-view: false
+#      format_sql: true
